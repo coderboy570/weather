@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta
+      name="description"
+      content="Skyline — a fast, accurate weather app with worldwide search, hourly and 7-day forecasts."
+    />
+    <title>Skyline · Weather</title>
+
+    <!-- Fonts: Sora for display/numerals, Inter for UI text. Falls back to
+         system fonts gracefully when offline. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply the saved/system theme before first paint to avoid a flash. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('skyline:theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var dark = stored ? stored === 'dark' : prefersDark;
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {
+          /* localStorage unavailable — default to light. */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

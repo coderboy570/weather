@@ -1,0 +1,30 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Professional full-stack weather application (React + TypeScript + Vite + Tailwind frontend, Node + Express + TypeScript backend, Open-Meteo data).",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n SERVER,CLIENT -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace server && npm run build --workspace client",
+    "build:server": "npm run build --workspace server",
+    "build:client": "npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "test": "npm run test --workspace server && npm run test --workspace client",
+    "test:server": "npm run test --workspace server",
+    "test:client": "npm run test --workspace client",
+    "typecheck": "npm run typecheck --workspace server && npm run typecheck --workspace client",
+    "lint": "echo \"(optional) add eslint here\" && exit 0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
